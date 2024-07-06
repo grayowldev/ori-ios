@@ -11,6 +11,10 @@
 		7F17FE1A2C384A1D0020BD43 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F17FE192C384A1D0020BD43 /* ContentView.swift */; };
 		7F17FE1C2C384A1E0020BD43 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7F17FE1B2C384A1E0020BD43 /* Assets.xcassets */; };
 		7F17FE1F2C384A1E0020BD43 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7F17FE1E2C384A1E0020BD43 /* Preview Assets.xcassets */; };
+		7FB5D50F2C39085800861239 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FB5D50E2C39085800861239 /* NetworkManager.swift */; };
+		7FB5D5112C390A5E00861239 /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FB5D5102C390A5E00861239 /* APIError.swift */; };
+		7FB5D5132C390D0400861239 /* OriOrder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FB5D5122C390D0400861239 /* OriOrder.swift */; };
+		7FB5D5152C39104E00861239 /* OriOrderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FB5D5142C39104E00861239 /* OriOrderViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +23,10 @@
 		7F17FE192C384A1D0020BD43 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		7F17FE1B2C384A1E0020BD43 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7F17FE1E2C384A1E0020BD43 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		7FB5D50E2C39085800861239 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		7FB5D5102C390A5E00861239 /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
+		7FB5D5122C390D0400861239 /* OriOrder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OriOrder.swift; sourceTree = "<group>"; };
+		7FB5D5142C39104E00861239 /* OriOrderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OriOrderViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +63,10 @@
 				7F17FE192C384A1D0020BD43 /* ContentView.swift */,
 				7F17FE1B2C384A1E0020BD43 /* Assets.xcassets */,
 				7F17FE1D2C384A1E0020BD43 /* Preview Content */,
+				7FB5D50E2C39085800861239 /* NetworkManager.swift */,
+				7FB5D5102C390A5E00861239 /* APIError.swift */,
+				7FB5D5122C390D0400861239 /* OriOrder.swift */,
+				7FB5D5142C39104E00861239 /* OriOrderViewModel.swift */,
 			);
 			path = Ori;
 			sourceTree = "<group>";
@@ -137,8 +149,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7FB5D50F2C39085800861239 /* NetworkManager.swift in Sources */,
+				7FB5D5112C390A5E00861239 /* APIError.swift in Sources */,
 				7F17FE1A2C384A1D0020BD43 /* ContentView.swift in Sources */,
 				7F17FE182C384A1D0020BD43 /* OriApp.swift in Sources */,
+				7FB5D5152C39104E00861239 /* OriOrderViewModel.swift in Sources */,
+				7FB5D5132C390D0400861239 /* OriOrder.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -8,11 +8,16 @@
 import SwiftUI
 
 struct ContentView: View {
+    @StateObject var viewModel = OriOrderViewModel()
     @State var showsheet = false
     @Environment(\.dismiss) var dismiss
     
+    
     var body: some View {
         VStack {
+            List(viewModel.oriOrders) { order in
+                Text(order.description)
+            }
             Image(systemName: "globe")
                 .imageScale(.large)
                 .foregroundStyle(.tint)
@@ -22,6 +27,10 @@ struct ContentView: View {
             } label: {
                 Text("Click here")
             }
+            
+        }
+        .onAppear {
+            viewModel.getOriOrders()
         }
         .padding()
         .sheet(isPresented: $showsheet) {
@@ -35,10 +44,12 @@ struct ContentView: View {
                         }
                         .navigationTitle("Sheet")
                         .navigationBarTitleDisplayMode(.inline)
+            }
         }
+        
     }
 }
 
-//#Preview {
-//    ContentView()
+#Preview {
+    ContentView()
 }
