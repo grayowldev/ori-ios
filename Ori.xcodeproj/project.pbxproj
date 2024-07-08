@@ -15,6 +15,7 @@
 		7FB5D5112C390A5E00861239 /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FB5D5102C390A5E00861239 /* APIError.swift */; };
 		7FB5D5132C390D0400861239 /* OriOrder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FB5D5122C390D0400861239 /* OriOrder.swift */; };
 		7FB5D5152C39104E00861239 /* OriOrderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FB5D5142C39104E00861239 /* OriOrderViewModel.swift */; };
+		7FB5D5192C396E3600861239 /* NewPurchaseOrderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FB5D5182C396E3600861239 /* NewPurchaseOrderView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +28,7 @@
 		7FB5D5102C390A5E00861239 /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
 		7FB5D5122C390D0400861239 /* OriOrder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OriOrder.swift; sourceTree = "<group>"; };
 		7FB5D5142C39104E00861239 /* OriOrderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OriOrderViewModel.swift; sourceTree = "<group>"; };
+		7FB5D5182C396E3600861239 /* NewPurchaseOrderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPurchaseOrderView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +61,7 @@
 		7F17FE162C384A1D0020BD43 /* Ori */ = {
 			isa = PBXGroup;
 			children = (
+				7FB5D5162C396DE500861239 /* Purchase Order */,
 				7F17FE172C384A1D0020BD43 /* OriApp.swift */,
 				7F17FE192C384A1D0020BD43 /* ContentView.swift */,
 				7F17FE1B2C384A1E0020BD43 /* Assets.xcassets */,
@@ -77,6 +80,14 @@
 				7F17FE1E2C384A1E0020BD43 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		7FB5D5162C396DE500861239 /* Purchase Order */ = {
+			isa = PBXGroup;
+			children = (
+				7FB5D5182C396E3600861239 /* NewPurchaseOrderView.swift */,
+			);
+			path = "Purchase Order";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -153,6 +164,7 @@
 				7FB5D5112C390A5E00861239 /* APIError.swift in Sources */,
 				7F17FE1A2C384A1D0020BD43 /* ContentView.swift in Sources */,
 				7F17FE182C384A1D0020BD43 /* OriApp.swift in Sources */,
+				7FB5D5192C396E3600861239 /* NewPurchaseOrderView.swift in Sources */,
 				7FB5D5152C39104E00861239 /* OriOrderViewModel.swift in Sources */,
 				7FB5D5132C390D0400861239 /* OriOrder.swift in Sources */,
 			);

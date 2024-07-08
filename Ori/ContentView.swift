@@ -15,18 +15,76 @@ struct ContentView: View {
     
     var body: some View {
         VStack {
-            List(viewModel.oriOrders) { order in
-                Text(order.description)
+            HStack {
+                Spacer()
+                Button {
+                    showsheet = true
+                } label: {
+                    Text("Add Order")
+                }
+                .padding(.trailing, 28)
             }
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
-            Button {
-                showsheet = true
-            } label: {
-                Text("Click here")
+            
+            List {
+                HStack {
+                    Text("Order #")
+                        .font(.headline)
+                    Spacer()
+                    Text("Description")
+                        .font(.headline)
+                    Spacer()
+                    Text("Description")
+                        .font(.headline)
+                    Spacer()
+                    Text("Description")
+                        .font(.headline)
+                    Spacer()
+                    Text("Description")
+                        .font(.headline)
+                    Spacer()
+                    Text("Description")
+                        .font(.headline)
+                    Spacer()
+                    Text("Description")
+                        .font(.headline)
+                    Spacer()
+                    Text("Description")
+                        .font(.headline)
+                    Spacer()
+                    Text("Description")
+                        .font(.headline)
+                    
+                }
+                
+                ForEach(viewModel.oriOrders) { order in
+                    HStack {
+                        Text(String(order.id))
+                        Spacer()
+                        Text(order.description)
+                        Spacer()
+                        Text(String(order.grossWeight))
+                        Spacer()
+                        Text(String(order.stoneWeight))
+                        Spacer()
+                        Text(String(order.netWeight))
+                        Spacer()
+                        Text(String(order.pureWeight))
+                        Spacer()
+                        Text(String(order.karat))
+                        Spacer()
+                        Text(String(order.rate))
+                        Spacer()
+                        Text(String(order.amount))
+                    }
+                    
+                }
+                
             }
+//            Image(systemName: "globe")
+//                .imageScale(.large)
+//                .foregroundStyle(.tint)
+//            Text("Hello, world!")
+            
             
         }
         .onAppear {
@@ -36,14 +94,16 @@ struct ContentView: View {
         .sheet(isPresented: $showsheet) {
             NavigationView {
                         VStack {
-                            Text("This is a sheet view")
-                                .padding()
-                            Button("Dismiss") {
-                                dismiss()
-                            }
+                            NewPurchaseOrderView()
+//                            Text("This is a sheet view")
+//                                .padding()
+//                            Button("Dismiss") {
+//                                dismiss()
+//                            }
                         }
-                        .navigationTitle("Sheet")
+                        .navigationTitle("New Purchase Order")
                         .navigationBarTitleDisplayMode(.inline)
+                        .padding()
             }
         }
         
