@@ -109,12 +109,12 @@ struct NewPurchaseOrderView: View {
                         OrderTextField(textBinding: $grossWeightString, fieldLabel: "Gross Weight", fieldPlaceholder: "Enter Gross Weight")
                         
                         Text("+")
-                            .frame(width: 50)
+                            .frame(width: 10)
                         
                         OrderTextField(textBinding: $stoneWeightString, fieldLabel: "Stone Weight", fieldPlaceholder: "Enter Stone Weight")
                         
                         Text("=")
-                            .frame(width: 50)
+                            .frame(width: 10)
                         
                         OrderTextInfo(label: "Net Weight (g)", info: String(netWeight))
                     }
@@ -123,12 +123,12 @@ struct NewPurchaseOrderView: View {
                         OrderTextInfo(label: "Stone Weight", info: String(stoneWeight))
                         
                         Text("x")
-                            .frame(width: 50)
+                            .frame(width: 10)
                         
                         OrderTextField(textBinding: $stoneRateString, fieldLabel: "Stone Rate (g)", fieldPlaceholder: "Enter Stone Rate")
                         
                         Text("=")
-                            .frame(width: 50)
+                            .frame(width: 10)
                         
                         OrderTextInfo(label: "Stone Cost", info: String(stoneCost))
                     }
@@ -137,12 +137,12 @@ struct NewPurchaseOrderView: View {
                         OrderTextInfo(label: "Net Weight", info: String(netWeight))
                         
                         Text("x")
-                            .frame(width: 50)
+                            .frame(width: 10)
                         
                         OrderTextField(textBinding: $laborRateString, fieldLabel: "Labor Rate", fieldPlaceholder: "Enter Labor Rate")
                         
                         Text("=")
-                            .frame(width: 50)
+                            .frame(width: 10)
                         
                         OrderTextInfo(label: "Labor Cost", info: String(laborCost))
                     }
@@ -151,18 +151,24 @@ struct NewPurchaseOrderView: View {
                     Text("Pure Weight:")
                     Text("Pure Rate:")
                    
-                    
-                    VStack {
-                        TotalView(label: "Total Stone Cost", valueRes: String(stoneCost))
-                        TotalView(label: "Total Labor Cost", valueRes: String(laborCost))
-                        TotalView(label: "Total Metal Cost", valueRes: String(metalCost))
-                        TotalView(label: "Total Addtional Cost", valueRes: String(0.0))
+                    HStack {
+                        VStack {
+                            TotalView(label: "Total Stone Cost", valueRes: String(stoneCost))
+                            TotalView(label: "Total Labor Cost", valueRes: String(laborCost))
+                            TotalView(label: "Total Metal Cost", valueRes: String(metalCost))
+                            TotalView(label: "Total Addtional Cost", valueRes: String(0.0))
+                        }
+                        .padding(.leading, 50)
+                        
+                        VStack {
+                            Text("Total")
+                                .font(.largeTitle)
+                            Text("$1000")
+                                .font(.largeTitle)
+                        }
+                        .padding(.trailing, 50)
                     }
-                    .padding(.leading, 100)
                     .padding(.top, 200)
-                    
-                    Text("Total")
-                    Text("$1000")
                 }
             }
             
