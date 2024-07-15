@@ -26,35 +26,7 @@ struct ContentView: View {
             }
             
             List {
-                HStack {
-                    Text("Order #")
-                        .font(.headline)
-                    Spacer()
-                    Text("Description")
-                        .font(.headline)
-                    Spacer()
-                    Text("Description")
-                        .font(.headline)
-                    Spacer()
-                    Text("Description")
-                        .font(.headline)
-                    Spacer()
-                    Text("Description")
-                        .font(.headline)
-                    Spacer()
-                    Text("Description")
-                        .font(.headline)
-                    Spacer()
-                    Text("Description")
-                        .font(.headline)
-                    Spacer()
-                    Text("Description")
-                        .font(.headline)
-                    Spacer()
-                    Text("Description")
-                        .font(.headline)
-                    
-                }
+                HeaderView()
                 
                 ForEach(viewModel.oriOrders) { order in
                     HStack {
@@ -112,4 +84,38 @@ struct ContentView: View {
 
 #Preview {
     ContentView()
+}
+
+struct HeaderView: View {
+    var body: some View {
+        HStack {
+            Text("Order #")
+                .font(.headline)
+            Spacer()
+            Text("Description")
+                .font(.headline)
+            Spacer()
+            Text("Description")
+                .font(.headline)
+            Spacer()
+            Text("Description")
+                .font(.headline)
+            Spacer()
+            Text("Description")
+                .font(.headline)
+            Spacer()
+            Text("Description")
+                .font(.headline)
+            Spacer()
+            Text("Description")
+                .font(.headline)
+            Spacer()
+            Text("Description")
+                .font(.headline)
+            Spacer()
+            Text("Description")
+                .font(.headline)
+            
+        }
+    }
 }
