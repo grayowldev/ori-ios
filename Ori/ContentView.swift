@@ -47,6 +47,12 @@ struct ContentView: View {
                         Text(String(order.rate))
                         Spacer()
                         Text(String(order.amount))
+                        Spacer()
+                        Button {
+                            
+                        } label: {
+                            Text("See more")
+                        }
                     }
                     
                 }
