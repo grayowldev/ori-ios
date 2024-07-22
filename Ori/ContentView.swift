@@ -10,6 +10,7 @@ import SwiftUI
 struct ContentView: View {
     @StateObject var viewModel = OriOrderViewModel()
     @State var showsheet = false
+    @State var showOrderDetails = false
     @Environment(\.dismiss) var dismiss
     
     
@@ -49,9 +50,16 @@ struct ContentView: View {
                         Text(String(order.amount))
                         Spacer()
                         Button {
-                            
+                            showOrderDetails = true
                         } label: {
-                            Text("See more")
+                            DarkButton()
+                                .sheet(isPresented: $showOrderDetails){
+                                    NavigationView {
+                                        VStack {
+                                            
+                                        }
+                                    }
+                                }
                         }
                     }
                     
@@ -73,11 +81,6 @@ struct ContentView: View {
             NavigationView {
                         VStack {
                             NewPurchaseOrderView()
-//                            Text("This is a sheet view")
-//                                .padding()
-//                            Button("Dismiss") {
-//                                dismiss()
-//                            }
                         }
                         .navigationTitle("New Purchase Order")
                         .navigationBarTitleDisplayMode(.inline)
@@ -101,27 +104,39 @@ struct HeaderView: View {
             Text("Description")
                 .font(.headline)
             Spacer()
-            Text("Description")
+            Text("Gross Weight")
                 .font(.headline)
             Spacer()
-            Text("Description")
+            Text("Stone Weight")
                 .font(.headline)
             Spacer()
-            Text("Description")
+            Text("Net Weight")
                 .font(.headline)
             Spacer()
-            Text("Description")
+            Text("Pure Weight")
                 .font(.headline)
             Spacer()
-            Text("Description")
+            Text("Karat")
                 .font(.headline)
             Spacer()
-            Text("Description")
+            Text("Rate")
                 .font(.headline)
             Spacer()
-            Text("Description")
+            Text("amount")
                 .font(.headline)
+            Spacer()
+            Text("")
             
         }
+    }
+}
+
+struct DarkButton: View {
+    var body: some View {
+        Text("See more")
+            .foregroundColor(.white)
+            .padding()
+            .background(Color.black)
+            .cornerRadius(24)
     }
 }
