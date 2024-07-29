@@ -32,6 +32,7 @@ struct ContentView: View {
                 ForEach(viewModel.oriOrders) { order in
                     HStack {
                         Text(String(order.id))
+                            .frame(width: 50)
                         Spacer()
                         Text(order.description)
                         Spacer()
