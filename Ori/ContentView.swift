@@ -26,30 +26,23 @@ struct ContentView: View {
                 .padding(.trailing, 28)
             }
             
-            List {
-                HeaderView()
-                
+            HeaderView()
+            VStack {
                 ForEach(viewModel.oriOrders) { order in
                     HStack {
-                        Text(String(order.id))
-                            .frame(width: 50)
+
+                        OrderIdCol(text: String(order.id))
                         Spacer()
-                        Text(order.description)
+                        TableCol(text: order.description, width: 200)
                         Spacer()
-                        Text(String(order.grossWeight))
+                        TableCol(text: String(format: "%.2f", order.grossWeight), width: 148)
                         Spacer()
-                        Text(String(order.stoneWeight))
+                        TableCol(text: String(format: "%.2f",order.stoneWeight), width: 160)
                         Spacer()
-                        Text(String(order.netWeight))
+                        TableCol(text: String(format: "%.2f",order.netWeight), width: 160)
                         Spacer()
-                        Text(String(order.pureWeight))
-                        Spacer()
-                        Text(String(order.karat))
-                        Spacer()
-                        Text(String(order.rate))
-                        Spacer()
-                        Text(String(order.amount))
-                        Spacer()
+                        TableCol(text: String(order.karat), width: 100)
+
                         Button {
                             showOrderDetails = true
                         } label: {
@@ -62,22 +55,20 @@ struct ContentView: View {
                                     }
                                 }
                         }
+                        .frame(width: 160)
+                        .padding(.trailing, 18)
+                        
                     }
-                    
+                    Divider()
                 }
-                
             }
-//            Image(systemName: "globe")
-//                .imageScale(.large)
-//                .foregroundStyle(.tint)
-//            Text("Hello, world!")
             
             
         }
+        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
         .onAppear {
             viewModel.getOriOrders()
         }
-        .padding()
         .sheet(isPresented: $showsheet) {
             NavigationView {
                         VStack {
@@ -99,36 +90,24 @@ struct ContentView: View {
 struct HeaderView: View {
     var body: some View {
         HStack {
-            Text("Order #")
-                .font(.headline)
+            OrderIdCol(isHeader: true, text: "Order #")
             Spacer()
-            Text("Description")
-                .font(.headline)
+            TableCol(isHeader: true, text: "Description", width: 200)
             Spacer()
-            Text("Gross Weight")
-                .font(.headline)
+            TableCol(isHeader: true, text: "Gross Weight", width: 148)
             Spacer()
-            Text("Stone Weight")
-                .font(.headline)
+            TableCol(isHeader: true, text: "Stone Weight", width: 160)
             Spacer()
-            Text("Net Weight")
-                .font(.headline)
+            TableCol(isHeader: true, text: "Net Weight", width: 160)
             Spacer()
-            Text("Pure Weight")
-                .font(.headline)
+            TableCol(isHeader: true, text: "Karat", width: 100)
             Spacer()
-            Text("Karat")
-                .font(.headline)
-            Spacer()
-            Text("Rate")
-                .font(.headline)
-            Spacer()
-            Text("amount")
-                .font(.headline)
-            Spacer()
-            Text("")
-            
+            TableCol(isHeader: true, text: "", width: 160)
         }
+        .frame(height: 50)
+        .background(Color.black)
+        .foregroundColor(.white)
+        
     }
 }
 
@@ -138,6 +117,30 @@ struct DarkButton: View {
             .foregroundColor(.white)
             .padding()
             .background(Color.black)
-            .cornerRadius(24)
+            .cornerRadius(18)
+    }
+}
+
+struct OrderIdCol: View {
+    var isHeader: Bool = false
+    var text: String
+    var body: some View {
+        Text(text)
+            .font(isHeader ? .headline : .body)
+            .frame(width: 82)
+            .padding(.leading, 42)
+//            .background(.blue)
+    }
+}
+
+struct TableCol: View {
+    var isHeader: Bool = false
+    var text: String
+    var width: CGFloat
+    var body: some View {
+        Text(text)
+            .font(isHeader ? .headline : .body)
+            .frame(width: width)
+//            .background(.red)
     }
 }
