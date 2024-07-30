@@ -168,7 +168,7 @@ struct NewPurchaseOrderView: View {
                         }
                         .padding(.trailing, 50)
                     }
-                    .padding(.top, 200)
+                    .padding(.top, 100)
                 }
             }
             

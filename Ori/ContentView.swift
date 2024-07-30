@@ -49,8 +49,27 @@ struct ContentView: View {
                             DarkButton()
                                 .sheet(isPresented: $showOrderDetails){
                                     NavigationView {
-                                        VStack {
-                                            
+                                        ScrollView {
+                                            VStack {
+                                                Text("Order Id: " + String(order.id))
+                                                Text("ORDER DETAILS")
+                                                OrderInfoItem(
+                                                    name: "Name", value: String(order.description))
+                                                OrderInfoItem(
+                                                    name: "Gross Weight", value: String(order.grossWeight))
+                                                OrderInfoItem(
+                                                    name: "Stone Weight", value: String(order.stoneWeight))
+                                                OrderInfoItem(
+                                                    name: "Net weight", value: String(order.netWeight))
+                                                OrderInfoItem(
+                                                    name: "Pure Weight", value: String(order.pureWeight))
+                                                OrderInfoItem(
+                                                    name: "Karat", value: String(order.karat))
+                                                OrderInfoItem(
+                                                    name: "Rate", value: String(order.rate))
+                                                OrderInfoItem(
+                                                    name: "Amount", value: "$" + String(order.amount))
+                                            }
                                         }
                                     }
                                 }
@@ -142,5 +161,26 @@ struct TableCol: View {
             .font(isHeader ? .headline : .body)
             .frame(width: width)
 //            .background(.red)
+    }
+}
+
+struct OrderInfoItem: View {
+    var name: String
+    var value: String
+    var body: some View {
+        VStack {
+            Text(name)
+                .fontWeight(.semibold)
+                .font(.title)
+                .frame(maxWidth: .infinity, alignment: .leading)
+                
+            Text(value)
+                .font(.system(size: 64))
+                .fontWeight(.thin)
+                .frame(maxWidth: .infinity, alignment: .leading)
+        }
+        .padding(.leading, 42)
+        .padding(.bottom, 22)
+        .foregroundStyle(.black)
     }
 }
