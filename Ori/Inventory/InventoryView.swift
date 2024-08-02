@@ -8,11 +8,76 @@
 import SwiftUI
 
 struct InventoryView: View {
+    @StateObject var viewModel = OriInventoryViewModel()
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+            HeaderView(activeView:  AvailableViews.inventory)
+            ForEach(viewModel.oriInventoryItem) { item in
+                InventoryItemRow(item: item)
+            }
+        }
+        .onAppear {
+            viewModel.getOriInventoryItems()
+        }
+        
     }
 }
 
 #Preview {
     InventoryView()
+}
+
+struct InventoryItemRow: View {
+    var item: OriInventoryItem
+    @State var showOrderDetails = false
+    var body: some View {
+        HStack {
+            TableCol(text: item.name, width: 160)
+            Spacer()
+            TableCol(text: item.sku, width: 160)
+            Spacer()
+            TableCol(text: String(format: "%.2f", item.goldGrossWeight), width: 200)
+            Spacer()
+            TableCol(text: String(item.location), width: 160)
+            Spacer()
+//            TableCol(text: String(format: "%.2f",order.netWeight), width: 160)
+//            Spacer()
+//            TableCol(text: "", width: 100)
+            
+            Button {
+                showOrderDetails = true
+            } label: {
+                DarkButton()
+                    .sheet(isPresented: $showOrderDetails){
+                        NavigationView {
+                            ScrollView {
+                                VStack {
+//                                    Text("Order Id: " + String(order.id))
+                                    Text("ORDER DETAILS")
+//                                    OrderInfoItem(
+//                                        name: "Name", value: String(order.description))
+//                                    OrderInfoItem(
+//                                        name: "Gross Weight", value: String(order.grossWeight))
+//                                    OrderInfoItem(
+//                                        name: "Stone Weight", value: String(order.stoneWeight))
+//                                    OrderInfoItem(
+//                                        name: "Net weight", value: String(order.netWeight))
+//                                    OrderInfoItem(
+//                                        name: "Pure Weight", value: String(order.pureWeight))
+//                                    OrderInfoItem(
+//                                        name: "Karat", value: String(order.karat))
+//                                    OrderInfoItem(
+//                                        name: "Rate", value: String(order.rate))
+//                                    OrderInfoItem(
+//                                        name: "Amount", value: "$" + String(order.amount))
+                                }
+                            }
+                        }
+                    }
+            }
+            .frame(width: 160)
+            .padding(.trailing, 18)
+            
+        }
+    }
 }
