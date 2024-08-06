@@ -11,6 +11,11 @@ struct InventoryView: View {
     @StateObject var viewModel = OriInventoryViewModel()
     var body: some View {
         VStack {
+            
+            HStack {
+                Spacer()
+                Button("Add New Item", action: {})
+            }
             HeaderView(activeView:  AvailableViews.inventory)
             ForEach(viewModel.oriInventoryItem) { item in
                 InventoryItemRow(item: item)
@@ -40,9 +45,6 @@ struct InventoryItemRow: View {
             Spacer()
             TableCol(text: String(item.location), width: 160)
             Spacer()
-//            TableCol(text: String(format: "%.2f",order.netWeight), width: 160)
-//            Spacer()
-//            TableCol(text: "", width: 100)
             
             Button {
                 showOrderDetails = true
