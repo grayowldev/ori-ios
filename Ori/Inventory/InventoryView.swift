@@ -9,6 +9,7 @@ import SwiftUI
 
 struct InventoryView: View {
     @StateObject var viewModel = OriInventoryViewModel()
+    @State var showNewItemSheet = true;
     var body: some View {
         VStack {
             
@@ -24,6 +25,9 @@ struct InventoryView: View {
         .onAppear {
             viewModel.getOriInventoryItems()
         }
+        .sheet(isPresented: $showNewItemSheet, content: {
+            Text("New Item Form goes here!!")
+        })
         
     }
 }
